@@ -1,0 +1,61 @@
+{
+  "logoSrc": "logo.png",
+  "pageTitle": "UN GUSTO VOLVER A VERTE",
+  "formFields": [
+    {
+      "label": "RUT",
+      "type": "text",
+      "name": "rut",
+      "placeholder": "RUT"
+    },
+    {
+      "label": "Nombre",
+      "type": "text",
+      "name": "name",
+      "placeholder": "Nombre"
+    },
+    {
+      "label": "Apellido Paterno",
+      "type": "text",
+      "name": "lastname_p",
+      "placeholder": "Apellido Paterno"
+    },
+    {
+      "label": "Apellido Materno",
+      "type": "text",
+      "name": "lastname_m",
+      "placeholder": "Apellido Materno"
+    },
+    {
+      "label": "Correo",
+      "type": "email",
+      "name": "email",
+      "placeholder": "Correo"
+    },
+    {
+      "label": "Número de Teléfono",
+      "type": "text",
+      "name": "phone_number",
+      "placeholder": "Número de Teléfono"
+    },
+    {
+      "label": "Contraseña",
+      "type": "password",
+      "name": "password",
+      "placeholder": "Contraseña"
+    },
+    {
+      "label": "Confirmar Contraseña",
+      "type": "password",
+      "name": "confirmPassword",
+      "placeholder": "Confirmar Contraseña"
+    }
+  ],
+  "loginButtonText": "INICIA SESIÓN",
+  "forgotPasswordLink": "¿Olvidaste tu contraseña?",
+  "registerLink": "Regístrate",
+  "registerPageTitle": "REGÍSTRATE",
+  "registerButtonLabel": "REGISTRARSE",
+  "alreadyHaveAccountText": "¿Ya tienes cuenta?",
+  "loginLink": "Iniciar sesión"
+}

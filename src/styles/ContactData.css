@@ -1,0 +1,84 @@
+.contact-data {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #585858;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-data h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+    text-align: left;
+    color: #e90404;
+    font-weight: bold;
+}
+
+.contact-data p {
+    text-align: left;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.contact-data form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-data .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.contact-data input[type="text"],
+.contact-data input[type="tel"],
+.contact-data input[type="email"],
+.contact-data input[type="number"] {
+    padding: 15px;
+    border: 1px solid #ece2e2;
+    border-radius: 5px;
+    width: 48%; /* Aproximadamente la mitad del espacio, para que dos campos puedan estar en la misma fila */
+    font-size: 14px;
+    color: #333;
+}
+
+.contact-data button {
+    padding: 15px 25px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.contact-data button:hover {
+    background-color: #000000;
+}
+
+/* Estilos para el mapa */
+.contact-data .map-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+.contact-data .close-map {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

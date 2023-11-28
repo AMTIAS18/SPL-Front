@@ -1,0 +1,74 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../public/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    margin: -10px;
+    
+}
+
+.logo-image2 {
+    width: 250px;
+    height: auto;
+}
+
+.logo-image {
+    width: 300px;
+    height: auto;
+}
+
+  .back-to-menu:hover {
+    border-color: orange;
+  }
+
+  .back-to-menu i {
+    color: #ffffff;
+  }
+
+  .login-box {
+    width: 300px;
+    text-align: center;
+  }
+
+  .login-box h2 {
+    color: #fff;
+    font: "Regular 400";
+    font-weight: bold;
+    font-size: medium;
+  }
+  
+  .login-box input {
+    margin-top: 10px;
+    width: 95%;
+    padding: 10px;
+    background-color: #97949483;
+    color: #ffffff;
+  }
+
+  .login-box input::placeholder {
+    color: #c2c2c2;
+  }
+
+  .login-button {
+    background-color: #edd100;
+    font-weight: bold;
+    color: #000000;
+    width: 42%;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  .login-box p {
+    color:#fff;
+  }
+  
+  .login-box a {
+    color: #fff;
+    text-decoration: none;
+    font: 'Regular 400';
+  }

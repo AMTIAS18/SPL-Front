@@ -1,0 +1,90 @@
+.admin-rol-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../public/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    margin: -10px;
+    overflow-y: auto;
+}
+
+.back-to-admin-link-rol{
+    color: #fff;
+}
+
+.admin-rol-title {
+    color: #fff;
+    font-size: 24px;
+}
+
+.admin-rol-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-rol-label {
+    color: #fff;
+}
+
+.admin-rol-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.admin-rol-button {
+    background-color: #edd100;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.admin-rol-button:hover {
+    background-color: #ffc107;
+}
+
+.admin-rol-action-button {
+    background-color: #edd100;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.admin-rol-action-button:hover {
+    background-color: #ffc107;
+}
+
+.admin-rol-table {
+    width: 30%;
+    border-collapse: collapse;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.admin-rol-cell {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.admin-rol-th {
+    background-color: #edd100;
+    color: #000000;
+    text-align: center;
+}
+
+.admin-rol-even-row {
+    background-color: #f2f2f2;
+}

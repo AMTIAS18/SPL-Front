@@ -1,0 +1,70 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #535353;
+}
+
+.menu-container {
+  text-align: center;
+}
+
+.menu-container h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.menu-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.menu-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-menu-column, .right-menu-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.menu-item-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.cart-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Estilos específicos para pantallas pequeñas (ej. móviles) */
+@media only screen and (max-width: 480px) {
+
+  body {
+    background-color: rgb(50, 50, 51);
+  }
+
+  .search-input {
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  .menu-columns {
+    flex-direction: column;  /* Las columnas de tarjetas se apilan verticalmente */
+  }
+
+  .left-menu-column, .right-menu-column {
+    width: 100%;  /* Las columnas ocupan todo el ancho disponible */
+  }
+}

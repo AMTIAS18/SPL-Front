@@ -1,0 +1,21 @@
+.background1 {
+    background-image: url('img1.jpg');
+    /* Otras propiedades como tamaño, posición, etc. */
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s; /* Opcional: transición suave entre imágenes */
+}
+
+.background2 {
+    background-image: url('./img2.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s;
+}
+
+.background3 {
+    background-image: url('./img3.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s;
+}

@@ -1,0 +1,79 @@
+.users-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../public/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    margin: -10px;
+    overflow-y: auto;
+
+}
+
+.users-container-header{
+    margin-top: 35%;
+}
+
+.back-to-admin-link-users{
+    color: #fff;
+}
+
+
+.users-table {
+    transform: scale(1);
+    width: 98%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.users-table tr {
+    height: 100px;
+}
+
+.users-table th, .users-table td {
+    width: 8%;
+    border: 1px solid #e0e0e0;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.users-table th:nth-child(5), .users-table td:nth-child(5) {
+    width: 23%;
+}
+
+.users-table th:nth-child(8), .users-table td:nth-child(8) {
+    width: 9%;
+}
+
+.users-table th {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.users-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+.edit-button {
+    background-color: #edd100;
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+}
+
+.details-button {
+    background-color: #edd100;
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button:hover, .delete-button:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,130 @@
+/* UserProfile.css */
+
+/* Estilos para el contenedor principal */
+.user-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-image: url('../../public/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 20px;
+    margin: -10px;
+    overflow-y: auto;
+  }
+  
+  /* Estilos para los títulos */
+  .user-profile-container h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .user-profile-container h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .modify-button {
+    font-size: 0.8rem;
+    background: none;
+    border: none;
+    color: blueviolet;
+    background-color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  /* Estilos para la sección de información personal */
+  .user-profile-container .info-section {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .info-section p,
+  .info-section h3 {
+    color: #000000;
+  }
+
+  .user-profile-container .address-section {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .address-section p,
+  .address-section h3 {
+    color: #000000;
+  }
+  
+  /* Estilos para la sección de cambio de contraseña */
+  .password-section {
+    width: 30%;
+  }
+
+  .password-section form input[type="text"] {
+    width: 85%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #777777;
+    pointer-events: none;
+  }
+  
+  .password-section form input[type="password"] {
+    width: 85%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .password-section form button {
+    background-color: #edd100;
+    color: #000000;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 50%;
+  }
+  
+  .password-section form button:hover {
+    background-color: #ffc107;
+  }
+
+  .edit-buttons button{
+    background-color: #edd100;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+
+  .edit-buttons button:hover {
+    background-color: #ffc107;
+  }
+
+  .delete-account-button {
+    background-color: #edd100;
+    color: #000000;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 90%;
+  }
+  
+  .delete-account-button:hover {
+    background-color: #ffc107;
+  }
