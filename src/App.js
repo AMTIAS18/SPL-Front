@@ -23,6 +23,8 @@ import AdminProductsAdd from './Pages/AdminProductsAdd';
 import AdminProducts from './Pages/AdminProducts';
 import AdminCategories from './Pages/AdminCategories';
 import AdminCategoriesAdd from './Pages/AdminCategoriesAdd';
+import Compra from './Pages/Compra';
+import Direccion from './Pages/Direccion';
 import './App.css';
 
 function App() {
@@ -75,6 +77,8 @@ function App() {
                                 <Route path="/adminproducts" element={<AdminProducts />} />
                                 <Route path="/admincategories" element={<AdminCategories />} />
                                 <Route path="/admincategoriesadd" element={<AdminCategoriesAdd />} />
+                                <Route path="/compra" element={<Compra />} />
+                                <Route path="/direccion" element={<Direccion />} />
                             </Routes>
                         </div>
                         <Footer />

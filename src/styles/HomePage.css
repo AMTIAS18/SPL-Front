@@ -48,6 +48,20 @@ body {
   height: 100%;
 }
 
+.cart-button{
+  background-color:rgba(255, 106, 0, 0.844);
+  color: #000000;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.cart-button:hover {
+  background-color: rgb(255, 132, 44);
+}
+
 /* Estilos específicos para pantallas pequeñas (ej. móviles) */
 @media only screen and (max-width: 480px) {
 

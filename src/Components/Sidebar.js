@@ -26,11 +26,13 @@ function Sidebar({ categorias, isAdmin }) {
   const handleLogout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    localStorage.removeItem('carrito');
     setUser(null);
     setIsAdmin(false);
     navigate('/Login');
     window.location.reload();
   };
+
 
     return (
         <nav id="sidebar">
@@ -45,7 +47,7 @@ function Sidebar({ categorias, isAdmin }) {
                     </li>
                     <li>
                         <NavigationItem to="/carrito" exact activeClassName="active-page">
-                            Carrito {cart.length > 0 && <span>({cart.length})</span>} {/* Muestra la cantidad de elementos en el carrito */}
+                            Carrito {cart.length > 0 && <span>({cart.length})</span>}
                         </NavigationItem>
                     </li>
                   </>

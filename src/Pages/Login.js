@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function Login({ setIsAdmin, setUser }) {
   const [rut, setRut] = useState('');
   const [password, setPassword] = useState('');
-  const [authToken, setAuthToken] = useState(''); // Nuevo estado para el token
+  const [authToken, setAuthToken] = useState('');
   const navigate = useNavigate();
 
 
@@ -25,7 +25,7 @@ function Login({ setIsAdmin, setUser }) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${authToken}` // Ejemplo de cómo podrías usar authToken en los headers
+          'Authorization': `Bearer ${authToken}`
         },
         body: JSON.stringify(userData),
       });
@@ -38,7 +38,7 @@ function Login({ setIsAdmin, setUser }) {
           if (data.message === 'accepted' && data.userdata.length > 0) {
             const user = data.userdata[0];
             setUser(user);
-            setAuthToken(data.token); // Almacena el token recibido
+            setAuthToken(data.token);
 
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('token', data.token);
@@ -48,13 +48,13 @@ function Login({ setIsAdmin, setUser }) {
       
             if (user.actividad === 'BLOQUEADO') {
               alert('Esta cuenta ha sido bloqueada, por favor contacta al soporte.');
-              handleLogout(); // Cerrar sesión
+              handleLogout();
               return;
             }
       
             if (user.actividad === 'ELIMINADO') {
               alert('Lo sentimos, tu cuenta ha sido eliminada.');
-              handleLogout(); // Cerrar sesión
+              handleLogout();
               return;
             }
       
@@ -79,12 +79,11 @@ function Login({ setIsAdmin, setUser }) {
     }
   };
 
-  // Función para cerrar sesión
   const handleLogout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     setUser(null);
-    navigate('/Login'); // Redireccionar a la página de inicio de sesión
+    navigate('/Login');
   };
 
   return (
