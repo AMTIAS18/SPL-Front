@@ -53,7 +53,7 @@ function Sidebar({ categorias, isAdmin }) {
                     </li>
                     <li>
                         <NavigationItem to="/UserOrderStatus" exact activeClassName="active-page">
-                            Pedido activo
+                            Mi Pedido
                         </NavigationItem>
                     </li>
                   </>

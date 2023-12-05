@@ -1,3 +1,25 @@
+.fondo-pedido-user{
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../public/fondo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+  padding: 100px;
+  margin: -10px;
+}
+
+.fondo-pedido-cajera{
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../public/fondo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+  padding: 100px;
+  margin: -10px;
+}
+
 .pedido-listo {
     background-color: #03df37; 
   }

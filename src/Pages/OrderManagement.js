@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/Pedido.css';
+
 
 function OrderManagement() {
   const [orders, setOrders] = useState([]);
@@ -15,7 +17,20 @@ function OrderManagement() {
       }
       const data = await response.json();
       if (data && Array.isArray(data.msg)) { 
-        setOrders(data.msg);
+        const ordersWithFormattedDate = data.msg.map(order => {
+          const fechaCompleta = new Date(order.fecha);
+          fechaCompleta.setHours(fechaCompleta.getHours());
+          const dia = fechaCompleta.getDate().toString().padStart(2, '0');
+          const mes = (fechaCompleta.getMonth() + 1).toString().padStart(2, '0');
+          const año = fechaCompleta.getFullYear();
+          const hora = fechaCompleta.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+          const fechaYHora = `${dia}-${mes}-${año} ${hora}`;
+          return {
+            ...order,
+            fechaYHora
+          };
+        });
+        setOrders(ordersWithFormattedDate);
       } else {
       }
     } catch (error) {
@@ -55,30 +70,30 @@ function OrderManagement() {
   
 
   return (
-    <div>
+    <div className='fondo-pedido-cajera'>
       <h2>Gestión de Pedidos</h2>
       <table>
         <thead>
           <tr>
             <th>ID Detalle Boleta</th>
-            <th>Fecha Creación</th>
+            <th>Fecha emision</th>
+            <th>RUT</th>
+            <th>Nombre usuario</th>
             <th>Producto</th>
             <th>Cantidad</th>
-            <th>Usuario</th>
-            <th>RUT</th>
             <th>Estado</th>
             <th>Acción</th>
           </tr>
         </thead>
         <tbody>
-          {orders.map(order => (
+          {[...orders].reverse().map(order => (
             <tr key={order.id_detalle_boleta}>
               <td>{order.id_detalle_boleta}</td>
-              <td>{order.fecha_creacion}</td>
+              <td>{order.fechaYHora}</td>
+              <td>{order.rut}</td>
+              <td>{order.nombre_usuario}</td>
               <td>{order.nombre_producto}</td>
               <td>{order.cantidad}</td>
-              <td>{order.nombre_usuario}</td>
-              <td>{order.rut}</td>
               <td>{order.estado}</td>
               <td>
                 <button onClick={() => handleOrderReady(order.id_detalle_boleta)}>

@@ -26,6 +26,8 @@ import AdminCategoriesAdd from './Pages/AdminCategoriesAdd';
 import Pago from './Pages/Pago';
 import Compra from './Pages/Compra';
 import Direccion from './Pages/Direccion';
+import UserOrderStatus from './Pages/UserOrderStatus';
+import OrderManagement from './Pages/OrderManagement';
 import './App.css';
 
 function App() {
@@ -81,6 +83,8 @@ function App() {
                                 <Route path="/pago" element={<Pago />} />
                                 <Route path="/compra" element={<Compra />} />
                                 <Route path="/direccion" element={<Direccion />} />
+                                <Route path="/userorderstatus" element={<UserOrderStatus />} />
+                                <Route path="/cajerapage" element={<OrderManagement />} />
                             </Routes>
                         </div>
                         <Footer />

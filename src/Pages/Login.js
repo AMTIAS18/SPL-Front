@@ -65,7 +65,9 @@ function Login({ setIsAdmin, setUser }) {
             } else if (user.rol === 'CLIENTE') {
               setIsAdmin(false);
               navigate('/');
-            }
+            } else if (user.rol === 'CAJERO') {
+              navigate('/');
+            }            
           } else {
             alert('Credenciales incorrectas. Intente de nuevo.');
           }
