@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef  } from 'react';
 import MenuCard from '../Components/MenuCard';
 import CartButton from '../Components/CartButton';
 import { CartContext } from '../Components/CartContext';
@@ -14,6 +14,9 @@ const Categoria = () => {
     const [CategoriaDescripcion, setCategoriaDescripcion] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [showAddedToCartMessage, setShowAddedToCartMessage] = useState(false);
+
+    const messageRef = useRef(null);
 
     useEffect(() => {
         fetch('https://entreraices-production.up.railway.app/api/products/')
@@ -57,7 +60,13 @@ const Categoria = () => {
 
     const handleAddToCart = (item) => {
         setCart(prevCart => [...prevCart, item]);
+        setShowAddedToCartMessage(true);
+        console.log("Producto agregado al carrito");
+        setTimeout(() => {
+            setShowAddedToCartMessage(false);
+        }, 2000);
     };
+    
 
     const leftMenuData = menuData.slice(0, 7);
     const rightMenuData = menuData.slice(7);
@@ -67,8 +76,11 @@ const Categoria = () => {
 
     return (
         <div className="menu-container">
-            <h2>{categoriaName}</h2>
-            <h2 className="categoria-descripcion">{CategoriaDescripcion}</h2>
+          <h2>{categoriaName}</h2>
+          <h2 className="categoria-descripcion">{CategoriaDescripcion}</h2>
+            <div ref={messageRef}>
+                {showAddedToCartMessage && <p className='add-product'>¡Producto agregado al carrito!</p>}
+            </div>
             <div className="menu-columns">
                 <div className="left-menu-column">
                     {leftMenuData.map((menu, index) => (

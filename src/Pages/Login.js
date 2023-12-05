@@ -43,6 +43,7 @@ function Login({ setIsAdmin, setUser }) {
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('token', data.token);
             localStorage.setItem('id_usuario', user.id_usuario);
+            localStorage.setItem('rut', user.rut);
             console.log('Respuesta del servidor:', data);
             
       

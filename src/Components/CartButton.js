@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { BsCartCheckFill } from 'react-icons/bs';
 import { CartContext } from '../Components/CartContext';
 
-const CartButton = ({ item }) => {
+const CartButton = ({ item, onAddToCart }) => {
   const { cart, setCart } = useContext(CartContext);
 
   const addToCart = (product) => {
-    const existingItemIndex = cart.findIndex(item => item.id_producto === product.id_producto);
+    onAddToCart(product);
+
+    const existingItemIndex = cart.findIndex((item) => item.id_producto === product.id_producto);
 
     if (existingItemIndex !== -1) {
       const updatedCart = cart.map((item, index) => {
@@ -27,11 +29,8 @@ const CartButton = ({ item }) => {
   };
 
   return (
-    <button 
-      className="cart-button"
-      onClick={() => addToCart(item)}
-    >
-      <BsCartCheckFill size={24}/>
+    <button className="cart-button" onClick={() => addToCart(item)}>
+      <BsCartCheckFill size={24} />
     </button>
   );
 };

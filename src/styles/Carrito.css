@@ -12,12 +12,15 @@
 }
 
 .carrito {
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
   padding: 30px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #fff;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
 .carrito h2 {
@@ -63,40 +66,131 @@
   text-align: center;
 }
 
+.carrito input[type="text"] {
+  width: calc(100% - 24px);
+  margin-top: 5px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
 .carrito button {
+  margin-left: 5px;
   padding: 6px 12px;
-  background-color: #edd100;
-  color: #000000;
+  background-color: #ff4d4d;
+  color: #ffffff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .carrito button:hover {
-  background-color: #ffc107;
+  background-color: #ff3333;
 }
 
 .carrito button:focus {
   outline: none;
 }
 
-.carrito button:disabled {
+
+.carrito .boton-vaciar {
+  margin-left: 81%;
+  padding: 8px 16px;
+  background-color: #ff4d4d;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carrito .boton-vaciar:hover {
+  background-color: #ff3333;
+}
+
+.carrito .boton-pedido {
+  padding: 8px 16px;
+  background-color: #edd100;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carrito .boton-pedido:hover {
   background-color: #ffc107;
-  cursor: not-allowed;
 }
 
-.carrito .seccion-pago {
-  margin-top: 20px;
+.fondo-pago-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('../../public/fondo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  justify-content: center;
+  padding: 100px;
+  margin: -10px;
 }
 
-.seccion-pago h3 {
-  margin-top: 7%;
+.pago {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.pago .seccion-direccion h3{
+  color:#000;
+  margin-top: 5%;
+}
+
+.pago .seccion-direccion button{
+  margin-left: -11px;
+  font-size: 0.85rem;
+  background: none;
+  border: none;
+  color: blueviolet;
+  background-color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pago .seccion-direccion input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.pago .direction-button button{
+  margin-left: auto;
+  margin-right: 10px;
+  padding: 8px 12px;
+  background-color: #edd100;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pago .seccion-pago h3 {
+  margin-top: 6%;
   color: #000;
 }
 
-.carrito .seccion-pago input[type="text"],
-.carrito .seccion-pago input[type="number"] {
+.pago .seccion-pago input[type="text"],
+.pago .seccion-pago input[type="number"] {
   width: calc(50% - 24px);
   padding: 8px 12px;
   margin-bottom: 10px;
@@ -105,23 +199,14 @@
   font-size: 14px;
 }
 
-.carrito .seccion-pago button {
-  padding: 6px 12px;
-  margin-left: 1%;
-}
-
-.carrito .seccion-direccion h3{
-  color:#000;
-  margin-top: 7%;
-}
-
-.carrito .seccion-direccion button{
-  margin-left: -11px;
-  font-size: 0.8rem;
-  background: none;
+.pago .seccion-pago button {
+  margin-left: auto;
+  margin-right: 10px;
+  padding: 7px 12px;
+  background-color: #edd100;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
   border: none;
-  color: blueviolet;
-  background-color: #fff;
-  text-decoration: underline;
+  border-radius: 4px;
   cursor: pointer;
 }

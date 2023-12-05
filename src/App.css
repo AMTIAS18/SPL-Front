@@ -57,6 +57,37 @@
   
 }
 
+.logout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.logout {
+  margin-top: -10%;
+  padding: 10px 20px;
+  background-color: #edd100;
+  color: #000000;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+  background-color: #ffc107;
+}
+
+.logout i {
+  margin-right: 5px;
+  transform: scaleX(-1);
+}
+
+
+
 /* Estilos para el contenido principal */
 #content {
   background-color: #07060694; /* Color de fondo del contenido principal */

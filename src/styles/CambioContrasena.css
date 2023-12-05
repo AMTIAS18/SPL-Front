@@ -30,12 +30,11 @@
 }
 
 .cambio-contrasena-form-group input {
-  margin-left: -60px;
-  width: 150%;
+  margin-left: -75px;
+  width: 185%;
   padding: 8px;
   background-color: #97949483;
   color: #ffffff;
-  border-radius: 5px;
 }
 
 .cambio-contrasena-form-group input::placeholder {
@@ -54,5 +53,11 @@
 }
 
 .cambio-contrasena-container a{
+  color: #fff;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.cambio-contrasena-container p{
   color: #fff;
 }

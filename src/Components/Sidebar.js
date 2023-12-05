@@ -9,6 +9,7 @@ function Sidebar({ categorias, isAdmin }) {
   const { cart } = useContext(CartContext);
   const { user, setUser, setIsAdmin } = useUser();
   const navigate = useNavigate();
+  const esCajera = user && user.rol === 'cajera';
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -50,12 +51,32 @@ function Sidebar({ categorias, isAdmin }) {
                             Carrito {cart.length > 0 && <span>({cart.length})</span>}
                         </NavigationItem>
                     </li>
+                    <li>
+                        <NavigationItem to="/UserOrderStatus" exact activeClassName="active-page">
+                            Pedido activo
+                        </NavigationItem>
+                    </li>
                   </>
                 )}
                 {isAdmin && (
+                  <>
                     <li>
                         <NavigationItem to="/Adminpage" exact activeClassName="active-page">
                             Panel de Administración
+                        </NavigationItem>
+                    </li>
+                    <li>
+                        <NavigationItem to="/CajeraPage" exact activeClassName="active-page">
+                        Panel de Cajera
+                        </NavigationItem>
+                    </li>
+                  </>
+                )}
+
+                {esCajera && (
+                    <li>
+                        <NavigationItem to="/CajeraPage" exact activeClassName="active-page">
+                            Panel de Cajera
                         </NavigationItem>
                     </li>
                 )}
@@ -85,8 +106,10 @@ function Sidebar({ categorias, isAdmin }) {
                                 Mi Perfil
                             </NavigationItem>
                         </li>
-                        <li>
-                            <button onClick={handleLogout}>Cerrar Sesión</button>
+                        <li className='logout-container'>
+                        <button class="logout" onClick={handleLogout}>
+                            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                        </button>
                         </li>
                     </>
                 )}

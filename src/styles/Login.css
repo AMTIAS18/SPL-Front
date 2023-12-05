@@ -43,6 +43,7 @@
   
   .login-box input {
     margin-top: 10px;
+    margin-left: -10px;
     width: 95%;
     padding: 10px;
     background-color: #97949483;
@@ -70,5 +71,5 @@
   .login-box a {
     color: #fff;
     text-decoration: none;
-    font: 'Regular 400';
+    margin-left: 5px;
   }

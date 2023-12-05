@@ -61,10 +61,9 @@ function WelcomePage() {
     return (
         <div className={`welcome-page background${backgroundIndex}`}>
             <img src="./logo.png" className="logo-image"/>
-
             <input 
                 type="text" 
-                placeholder="Que vas a comer hoy?..." 
+                placeholder="¿Qué piensas comer hoy?" 
                 onChange={handleSearchChange}
                 value={searchTerm}
                 className="search-bar"
