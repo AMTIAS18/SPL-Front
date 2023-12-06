@@ -104,6 +104,7 @@ function Login({ setIsAdmin, setUser }) {
               value={rut}
               onChange={(e) => setRut(e.target.value)}
               required
+              maxLength={8}
               placeholder="RUT sin digito verificador"
             />
           </div>

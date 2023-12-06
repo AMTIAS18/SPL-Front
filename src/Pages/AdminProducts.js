@@ -151,6 +151,7 @@ function AdminProducts() {
               <th>Stock</th>
               <th>Porción</th>
               <th>Precio</th>
+              <th>Ruta imagen</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -237,6 +238,17 @@ function AdminProducts() {
                     />
                   ) : (
                     product.valor_unitario !== undefined ? `$${product.valor_unitario.toFixed(2)}` : 'N/A'
+                  )}
+                </td>
+                <td>
+                  {selectedProduct && selectedProduct.id_producto === product.id_producto ? (
+                    <input
+                      type="text"
+                      value={updatedProduct.ruta_imagen}
+                      onChange={(e) => setUpdatedProduct({ ...updatedProduct, ruta_imagen: e.target.value })}
+                    />
+                  ) : (
+                    product.ruta_imagen
                   )}
                 </td>
                 <td>

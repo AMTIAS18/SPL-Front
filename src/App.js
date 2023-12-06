@@ -27,7 +27,9 @@ import Pago from './Pages/Pago';
 import Compra from './Pages/Compra';
 import Direccion from './Pages/Direccion';
 import UserOrderStatus from './Pages/UserOrderStatus';
+import UserPedidosListos from './Pages/UserPedidosListos';
 import OrderManagement from './Pages/OrderManagement';
+import AdminStats from './Pages/AdminStats';
 import './App.css';
 
 function App() {
@@ -84,7 +86,9 @@ function App() {
                                 <Route path="/compra" element={<Compra />} />
                                 <Route path="/direccion" element={<Direccion />} />
                                 <Route path="/userorderstatus" element={<UserOrderStatus />} />
+                                <Route path="/userlistos" element={<UserPedidosListos />} />
                                 <Route path="/cajerapage" element={<OrderManagement />} />
+                                <Route path="/adminstats" element={<AdminStats />} />
                             </Routes>
                         </div>
                         <Footer />

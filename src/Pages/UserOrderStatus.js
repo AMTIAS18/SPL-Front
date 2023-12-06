@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Pedido.css';
 
 function UserOrderStatus() {
+  const navigate = useNavigate();
   const [userOrders, setUserOrders] = useState([]);
   const pollInterval = 30000;
 
@@ -51,9 +53,14 @@ function UserOrderStatus() {
     return estado === 'Listo' ? 'pedido-listo' : 'pedido-pendiente';
   };
 
+  const handlePedidosListos = () => {
+    navigate('/userlistos');
+  };
+
   return (
     <div className='fondo-pedido-user'>
       <h2>Mi Pedido</h2>
+      <button className='user-listos' onClick={handlePedidosListos}>Pedidos Listos</button>
       <table>
         <thead>
           <tr>
