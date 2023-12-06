@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef  } from 'react';
 import logo from './negro.png';
 import NavigationItem from '../Components/NavigationItem';
 import { CartContext } from '../Components/CartContext';
@@ -9,7 +9,7 @@ function Sidebar({ categorias, isAdmin }) {
   const { cart } = useContext(CartContext);
   const { user, setUser, setIsAdmin } = useUser();
   const navigate = useNavigate();
-  const esCajera = user && user.rol === 'cajera';
+  const cartRef = useRef(null);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -22,7 +22,10 @@ function Sidebar({ categorias, isAdmin }) {
     if (storedIsAdmin !== null && storedIsAdmin !== isAdmin) {
       setIsAdmin(storedIsAdmin);
     }
-  }, [user, isAdmin, setUser, setIsAdmin]);
+    if (cartRef.current) {
+        cartRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+  }, [cart, user, isAdmin, setUser, setIsAdmin]);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
@@ -42,42 +45,8 @@ function Sidebar({ categorias, isAdmin }) {
             </div>
             <ul className="list-unstyled">
                 {user && (
-                  <>
                     <li>
                         <span>Bienvenido, {user.nombre}</span>
-                    </li>
-                    <li>
-                        <NavigationItem to="/carrito" exact activeClassName="active-page">
-                            Carrito {cart.length > 0 && <span>({cart.length})</span>}
-                        </NavigationItem>
-                    </li>
-                    <li>
-                        <NavigationItem to="/UserOrderStatus" exact activeClassName="active-page">
-                            Mi Pedido
-                        </NavigationItem>
-                    </li>
-                  </>
-                )}
-                {isAdmin && (
-                  <>
-                    <li>
-                        <NavigationItem to="/Adminpage" exact activeClassName="active-page">
-                            Panel de Administración
-                        </NavigationItem>
-                    </li>
-                    <li>
-                        <NavigationItem to="/CajeraPage" exact activeClassName="active-page">
-                        Panel de Cajera
-                        </NavigationItem>
-                    </li>
-                  </>
-                )}
-
-                {esCajera && (
-                    <li>
-                        <NavigationItem to="/CajeraPage" exact activeClassName="active-page">
-                            Panel de Cajera
-                        </NavigationItem>
                     </li>
                 )}
 
@@ -101,6 +70,16 @@ function Sidebar({ categorias, isAdmin }) {
 
                 {user && (
                     <>
+                        <li ref={cartRef}>
+                            <NavigationItem to="/carrito" exact activeClassName="active-page">
+                                Carrito {cart.length > 0 && <span>({cart.length})</span>}
+                            </NavigationItem>
+                        </li>
+                        <li>
+                            <NavigationItem to="/UserOrderStatus" exact activeClassName="active-page">
+                                Mi Pedido
+                            </NavigationItem>
+                        </li>
                         <li>
                             <NavigationItem to="/UserProfile" exact activeClassName="active-page">
                                 Mi Perfil

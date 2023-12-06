@@ -32,6 +32,11 @@ function AdminPage() {
           <h3>Estadísticas</h3>
           <Link to="/AdminStats">Ver Estadísticas</Link>
         </section>
+
+        <section>
+          <h3>Panel de Cajera</h3>
+          <Link to="/CajeraPage">Ir al Panel de Cajera</Link>
+        </section>
       </div>
     </div>
   );

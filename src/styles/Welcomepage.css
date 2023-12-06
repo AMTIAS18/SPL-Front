@@ -33,6 +33,15 @@
     background-color: rgba(0, 0, 0, 0.918);
 }
 
+.product-card{
+    color: #fff;
+}
+
+.product-card img {
+    width: 200px;
+    height: auto;
+}
+
 .logo-image {
     max-width: 100%;   
     height: auto;      

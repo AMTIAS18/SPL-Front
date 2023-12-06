@@ -2,12 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 120vh;
     background-image: url('../../public/fondo.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 20px;
     margin: -10px;
+    position: relative;
 }
 
 .admin-page {
@@ -17,6 +18,8 @@
     background-color: #f5f5f5;
     text-align: center;
     opacity: 0.9;
+    position: relative;
+    z-index: 1;
   }
   
   .admin-page h2 {

@@ -73,7 +73,7 @@ function WelcomePage() {
                 {filteredProducts.length ? 
                     filteredProducts.map(producto => (
                         <div key={producto.id_producto} className="product-card">
-                            <img src={producto.imagen} alt={producto.nombre}/>
+                            <img src={producto.ruta_imagen} alt={producto.nombre}/>
                             <h2>{producto.nombre}</h2>
                             <p>Ingredientes: {producto.ingredientes.join(', ')}</p>
                             <p>Valor: ${producto.valor_unitario}</p>
