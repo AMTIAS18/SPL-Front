@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Pedido.css';
 
 function UserPedidosListos() {
@@ -51,34 +52,39 @@ function UserPedidosListos() {
   }, [id_usuario]);
 
   return (
-    <div className='user-pedidos-listos'>
-      <h2>Pedidos Listos</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID Detalle Boleta</th>
-            <th>Fecha de Creación</th>
-            <th>Nombre del Producto</th>
-            <th>Cantidad</th>
-            <th>Nombre del Usuario</th>
-            <th>RUT</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pedidosListos.map(pedido => (
-            <tr key={pedido.id_detalle_boleta}>
-              <td>{pedido.id_detalle_boleta}</td>
-              <td>{pedido.fecha_creacion}</td>
-              <td>{pedido.nombre_producto}</td>
-              <td>{pedido.cantidad}</td>
-              <td>{pedido.nombre_usuario}</td>
-              <td>{pedido.rut}</td>
-              <td>{pedido.estado}</td>
+    <div className='fondo-user-pedidos-listos'>
+      <div className='user-pedidos-listos'>
+        <Link to="/UserOrderStatus" className="back-to-admin-link-products">
+          <i className="fas fa-arrow-left"></i> Volver
+        </Link>
+        <h2>Pedidos Listos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID Detalle Boleta</th>
+              <th>Fecha de Creación</th>
+              <th>Nombre del Producto</th>
+              <th>Cantidad</th>
+              <th>Nombre del Usuario</th>
+              <th>RUT</th>
+              <th>Estado</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {pedidosListos.map(pedido => (
+              <tr key={pedido.id_detalle_boleta}>
+                <td>{pedido.id_detalle_boleta}</td>
+                <td>{pedido.fecha_creacion}</td>
+                <td>{pedido.nombre_producto}</td>
+                <td>{pedido.cantidad}</td>
+                <td>{pedido.nombre_usuario}</td>
+                <td>{pedido.rut}</td>
+                <td>{pedido.estado}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

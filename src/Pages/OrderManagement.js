@@ -7,6 +7,12 @@ function OrderManagement() {
 
   useEffect(() => {
     fetchOrders();
+
+    const intervalId = setInterval(() => {
+      fetchOrders();
+    }, 30000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   const fetchOrders = async () => {

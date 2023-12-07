@@ -18,6 +18,12 @@
     overflow-y: auto;
 }
 
+.fondo-admin-stats .back-to-admin-page{
+    color:#fff;
+    text-decoration: none;
+    margin-left: 25px;
+  }
+
 .admin-stats h2 {
     color: #000;
     font-size: 24px;

@@ -44,3 +44,31 @@
 .pedido-listo {
     background-color: #03df37; 
   }
+
+.fondo-user-pedidos-listos{
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../public/fondo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+  padding: 100px;
+  margin: -10px;
+}
+
+.back-to-admin-link-products {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.back-to-admin-link-products i {
+  margin-right: 5px;
+}
+
+.back-to-admin-link-products:hover {
+  color: #ffffff;
+}
+  

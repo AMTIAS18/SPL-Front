@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/UserProfile.css';
+import { Link } from 'react-router-dom';
 import { useUser } from '../Components/UserContext';
+import '../styles/UserProfile.css';
 
 function UserProfile() {
   const { user } = useUser();
@@ -28,7 +29,6 @@ function UserProfile() {
         return;
       }
   
-      // Actualizar el estado con los datos del usuario
       setUserDetails(currentUser);
     } catch (error) {
       console.error('Error al obtener los datos del usuario:', error);
@@ -215,6 +215,9 @@ function UserProfile() {
 
   return (
     <div className="user-profile-container">
+      <Link to="/" className="back">
+        <i className="fas fa-arrow-left"></i> Ir a inicio
+      </Link>
       <h2>Mi Perfil</h2>
       <div className="info-section">
         <h3 className='address-header'>

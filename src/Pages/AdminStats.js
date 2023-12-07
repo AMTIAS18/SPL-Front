@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Chart from 'chart.js/auto';
 import '../styles/AdminStats.css';
 
@@ -9,6 +10,7 @@ function AdminStats() {
   const [productStats, setProductStats] = useState(null);
   const [showProductStats, setShowProductStats] = useState(false);
   const [topCustomers, setTopCustomers] = useState(null);
+  const [noStatsFound, setNoStatsFound] = useState(false);
 
   const handleDateChange = (event) => {
     const { id, value } = event.target;
@@ -45,23 +47,41 @@ function AdminStats() {
           },
           body: JSON.stringify({ start_date: startDate, end_date: endDate }),
         });
-        
+  
         if (!productResponse.ok) {
           throw new Error('Error al obtener las estadísticas de productos');
         }
-        
+  
         const productData = await productResponse.json();
         setProductStats(productData.data);
         setShowProductStats(true);
   
         await fetchTopCustomers();
+        if (
+          (!statsData || !statsData.success || !statsData.data || statsData.data.length === 0) &&
+          (!productStats || productStats.length === 0)
+        ) {
+          setNoStatsFound(true);
+        } else {
+          setNoStatsFound(false);
+        }
+  
+        if (noStatsFound) {
+          // Mostrar una alerta si no se encontraron estadísticas
+          alert('No se encontraron registros para las fechas seleccionadas. Intente nuevamente');
+        }
       } catch (error) {
         console.error('Error al cargar las estadísticas de productos:', error);
+        setNoStatsFound(true);
+        alert('Error al cargar las estadísticas.');
       }
     } catch (error) {
       console.error('Error al cargar las estadísticas:', error);
+      setNoStatsFound(true);
+      alert('Error al cargar las estadísticas.');
     }
   };
+  
 
   const fetchTopCustomers = async () => {
     if (startDate === '' || endDate === '') {
@@ -83,11 +103,22 @@ function AdminStats() {
       }
   
       const data = await response.json();
-      setTopCustomers(data.data);
-    } catch (error) {
-      console.error('Error al cargar las estadísticas de clientes:', error);
+    setTopCustomers(data.data);
+
+    if (
+      (!statsData || !statsData.success || !statsData.data || statsData.data.length === 0) &&
+      (!productStats || productStats.length === 0) &&
+      (!data.data || data.data.length === 0)
+    ) {
+      setNoStatsFound(true);
+    } else {
+      setNoStatsFound(false);
     }
-  };
+  } catch (error) {
+    console.error('Error al cargar las estadísticas de clientes:', error);
+    setNoStatsFound(true);
+  }
+};
   
 
   useEffect(() => {
@@ -134,64 +165,71 @@ function AdminStats() {
 
   return (
     <div className='fondo-admin-stats'>
+      <Link to="/AdminPage" className="back-to-admin-page">
+        <i className="fas fa-arrow-left"></i>Volver
+      </Link>
       <div className='admin-stats'>
         <h2>Estadísticas</h2>
         <div className='date-selector'>
           <label htmlFor='startDate'>Desde:</label>
           <input type='date' id='startDate' value={startDate} onChange={handleDateChange} />
-  
           <label htmlFor='endDate'>Hasta:</label>
           <input type='date' id='endDate' value={endDate} onChange={handleDateChange} />
         </div>
-  
+    
         <button onClick={fetchStats}>Obtener Estadísticas</button>
-  
-        {statsData && statsData.success && (
+    
+        {noStatsFound && (
+          <div className='no-stats-message'>
+            <p>No se encontraron registros para las fechas seleccionadas.</p>
+          </div>
+        )}
+
+        {!noStatsFound && statsData && statsData.success && statsData.data && statsData.data.length > 0 && (
           <div className='stats-result'>
             <h3>Ingreso Total: ${statsData.data[0].ingreso_total}</h3>
           </div>
         )}
-  
-        {showProductStats && statsData && statsData.success && ( // Mostrar solo si showProductStats es verdadero y statsData es exitoso
-          <div className='charts-container'>
-            <div className='chart'>
-              <h4>Productos mas vendidos:</h4>
-              <canvas id='productChart' width='400' height='200'></canvas>
+
+        {!noStatsFound && showProductStats && productStats && productStats.length > 0 &&
+          productStats.some(product => parseInt(product.cantidad_total, 10) !== 0) &&
+          statsData && statsData.success && (
+            <div className='charts-container'>
+              <div className='chart'>
+                <h4>Productos más vendidos:</h4>
+                <canvas id='productChart' width='400' height='200'></canvas>
+              </div>
             </div>
-          </div>
-        )}
+          )
+        }
+
   
-        {statsData && !statsData.success && (
-          <div className='stats-error'>
-            <p>Error al obtener las estadísticas: {statsData.message}</p>
-          </div>
-        )}
-        {topCustomers && (
-        <div className='customer-stats'>
+        {!noStatsFound && topCustomers && topCustomers.length > 0 && (
+          <div className='customer-stats'>
             <h4>Mejores Clientes:</h4>
             <ul>
-            {topCustomers.slice(0, 10).map((customer, index) => (
+              {topCustomers.slice(0, 10).map((customer, index) => (
                 <li key={customer.id_usuario}>
-                <p>
+                  <p>
                     <strong>{index + 1}. Nombre:</strong> {customer.nombre} {customer.apellido_p} {customer.apellido_m}
-                </p>
-                <p>
+                  </p>
+                  <p>
                     <strong>Rut:</strong> {customer.rut}
-                </p>
-                <p>
+                  </p>
+                  <p>
                     <strong>Número teléfono:</strong> {customer.num_telefono}
-                </p>
-                <p>
+                  </p>
+                  <p>
                     <strong>Total Compras:</strong> {customer.total_compras}
-                </p>
+                  </p>
                 </li>
-            ))}
+              ))}
             </ul>
-        </div>
+          </div>
         )}
       </div>
     </div>
-  );
+  );  
 }
 
   export default AdminStats;
