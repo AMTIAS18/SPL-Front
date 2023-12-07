@@ -10,6 +10,7 @@ function Sidebar({ categorias, isAdmin }) {
   const { user, setUser, setIsAdmin } = useUser();
   const navigate = useNavigate();
   const cartRef = useRef(null);
+  const prevCartLength = useRef(cart.length);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -22,10 +23,13 @@ function Sidebar({ categorias, isAdmin }) {
     if (storedIsAdmin !== null && storedIsAdmin !== isAdmin) {
       setIsAdmin(storedIsAdmin);
     }
-    if (cartRef.current) {
-        cartRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (prevCartLength.current !== cart.length) {
+        if (cartRef.current) {
+          cartRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        prevCartLength.current = cart.length;
       }
-  }, [cart, user, isAdmin, setUser, setIsAdmin]);
+    }, [cart, user, isAdmin, setUser, setIsAdmin]);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
