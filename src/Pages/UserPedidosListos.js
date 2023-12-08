@@ -71,7 +71,7 @@ function UserPedidosListos() {
             </tr>
           </thead>
           <tbody>
-            {pedidosListos.map(pedido => (
+            {pedidosListos.slice(0).reverse().map(pedido => (
               <tr key={pedido.id_detalle_boleta}>
                 <td>{pedido.id_detalle_boleta}</td>
                 <td>{pedido.fecha_creacion}</td>

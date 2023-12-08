@@ -54,6 +54,12 @@
   height: 90vh;
   padding: 100px;
   margin: -10px;
+  overflow-y: auto;
+}
+
+.user-pedidos-listos {
+  margin: 20px auto;
+  max-width: 90%;
 }
 
 .back-to-admin-link-products {

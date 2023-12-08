@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './../styles/Welcomepage.css';
+import CartButton from '../Components/CartButton';
 
 function WelcomePage() {
     const [productos, setProductos] = useState([]);
@@ -7,6 +8,8 @@ function WelcomePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [hasSearched, setHasSearched] = useState(false);
     const [backgroundIndex, setBackgroundIndex] = useState(1);
+    // eslint-disable-next-line
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         fetch('https://entreraices-production.up.railway.app/api/products') 
@@ -58,9 +61,18 @@ function WelcomePage() {
         }
     }
 
+    const addToCart = (product) => {
+        setCart(prevCart => [...prevCart, { ...product, quantity: 1 }]);
+    };
+
+    if (isLoading) {
+        return <div>Cargando productos...</div>;
+    }
+
+
     return (
         <div className={`welcome-page background${backgroundIndex}`}>
-            <img src="./logo.png" className="logo-image"/>
+            <img src="./logo.png" alt="" className="logo-image-welcome" />
             <input 
                 type="text" 
                 placeholder="¿Qué piensas comer hoy?" 
@@ -77,7 +89,7 @@ function WelcomePage() {
                             <h2>{producto.nombre}</h2>
                             <p>Ingredientes: {producto.ingredientes.join(', ')}</p>
                             <p>Valor: ${producto.valor_unitario}</p>
-                            <button>Agregar al Carrito</button>
+                            <CartButton item={producto} onAddToCart={addToCart} />
                         </div>
                     ))
                     :

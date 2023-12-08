@@ -10,7 +10,6 @@ function AdminStats() {
   const [productStats, setProductStats] = useState(null);
   const [showProductStats, setShowProductStats] = useState(false);
   const [topCustomers, setTopCustomers] = useState(null);
-  const [noStatsFound, setNoStatsFound] = useState(false);
 
   const handleDateChange = (event) => {
     const { id, value } = event.target;
@@ -18,6 +17,9 @@ function AdminStats() {
   };
 
   const fetchStats = async () => {
+    setStatsData(null);
+    setProductStats(null);
+    setTopCustomers(null);
     if (startDate === '' || endDate === '') {
       alert('Por favor, elige ambas fechas para obtener estadísticas.');
       return;
@@ -57,31 +59,23 @@ function AdminStats() {
         setShowProductStats(true);
   
         await fetchTopCustomers();
+  
         if (
           (!statsData || !statsData.success || !statsData.data || statsData.data.length === 0) &&
-          (!productStats || productStats.length === 0)
+          (!productStats || productStats.length === 0) &&
+          (!topCustomers || topCustomers.length === 0)
         ) {
-          setNoStatsFound(true);
-        } else {
-          setNoStatsFound(false);
-        }
-  
-        if (noStatsFound) {
-          // Mostrar una alerta si no se encontraron estadísticas
           alert('No se encontraron registros para las fechas seleccionadas. Intente nuevamente');
         }
       } catch (error) {
         console.error('Error al cargar las estadísticas de productos:', error);
-        setNoStatsFound(true);
         alert('Error al cargar las estadísticas.');
       }
     } catch (error) {
       console.error('Error al cargar las estadísticas:', error);
-      setNoStatsFound(true);
       alert('Error al cargar las estadísticas.');
     }
   };
-  
 
   const fetchTopCustomers = async () => {
     if (startDate === '' || endDate === '') {
@@ -103,27 +97,17 @@ function AdminStats() {
       }
   
       const data = await response.json();
-    setTopCustomers(data.data);
-
-    if (
-      (!statsData || !statsData.success || !statsData.data || statsData.data.length === 0) &&
-      (!productStats || productStats.length === 0) &&
-      (!data.data || data.data.length === 0)
-    ) {
-      setNoStatsFound(true);
-    } else {
-      setNoStatsFound(false);
+      setTopCustomers(data.data);
+    } catch (error) {
+      console.error('Error al cargar las estadísticas de clientes:', error);
+      alert('Error al cargar las estadísticas de clientes.');
     }
-  } catch (error) {
-    console.error('Error al cargar las estadísticas de clientes:', error);
-    setNoStatsFound(true);
-  }
-};
+  };
   
 
   useEffect(() => {
     let chartInstance = null;
-  
+
     if (productStats && showProductStats) {
       const sortedProductStats = productStats.sort((a, b) => parseInt(b.cantidad_total, 10) - parseInt(a.cantidad_total, 10));
     
@@ -155,13 +139,14 @@ function AdminStats() {
         },
       });
     }
-  
+
     return () => {
       if (chartInstance) {
         chartInstance.destroy();
       }
     };
-  }, [productStats, showProductStats]);
+  }, [startDate, endDate, statsData, productStats, topCustomers, showProductStats]);
+
 
   return (
     <div className='fondo-admin-stats'>
@@ -178,20 +163,14 @@ function AdminStats() {
         </div>
     
         <button onClick={fetchStats}>Obtener Estadísticas</button>
-    
-        {noStatsFound && (
-          <div className='no-stats-message'>
-            <p>No se encontraron registros para las fechas seleccionadas.</p>
-          </div>
-        )}
 
-        {!noStatsFound && statsData && statsData.success && statsData.data && statsData.data.length > 0 && (
+        {statsData && statsData.success && statsData.data && statsData.data.length > 0 && (
           <div className='stats-result'>
             <h3>Ingreso Total: ${statsData.data[0].ingreso_total}</h3>
           </div>
         )}
 
-        {!noStatsFound && showProductStats && productStats && productStats.length > 0 &&
+        {showProductStats && productStats && productStats.length > 0 &&
           productStats.some(product => parseInt(product.cantidad_total, 10) !== 0) &&
           statsData && statsData.success && (
             <div className='charts-container'>
@@ -203,8 +182,7 @@ function AdminStats() {
           )
         }
 
-  
-        {!noStatsFound && topCustomers && topCustomers.length > 0 && (
+        {topCustomers && topCustomers.length > 0 && (
           <div className='customer-stats'>
             <h4>Mejores Clientes:</h4>
             <ul>
@@ -229,7 +207,7 @@ function AdminStats() {
         )}
       </div>
     </div>
-  );  
+  );
 }
 
-  export default AdminStats;
+export default AdminStats;

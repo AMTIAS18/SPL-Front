@@ -28,14 +28,14 @@
   margin-right: 25px;
 }
 
-.menu-card h3 { /*TITULO*/
+.menu-card h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
   color: #0a0a0a;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.menu-card p { /*Descripcion y precio*/
+.menu-card p {
   font-size: 1rem;
   color: #222020;
   margin: 15px 0;
@@ -43,7 +43,6 @@
   ;
 }
 
-/* Para pantallas pequeñas*/
 
 @media only screen and (max-width: 480px) {
 
