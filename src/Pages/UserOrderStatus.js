@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Pedido.css';
+import '../styles/PedidoUser.css';
 
 function UserOrderStatus() {
   const navigate = useNavigate();
   const [userOrders, setUserOrders] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const ordersPerPage = 10;
   const pollInterval = 30000;
 
   useEffect(() => {
@@ -57,38 +59,57 @@ function UserOrderStatus() {
     navigate('/userlistos');
   };
 
-  return (
-    <div className='fondo-pedido-user'>
-      <h2>Mi Pedido</h2>
-      <button className='user-listos' onClick={handlePedidosListos}>Pedidos Listos</button>
-      <table>
-        <thead>
-          <tr>
-            <th>ID Pedido</th>
-            <th>Fecha emision</th>
-            <th>Nombre</th>
-            <th>Rut</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Estado</th>
+
+const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+const pageCount = Math.ceil(userOrders.length / ordersPerPage);
+
+const currentOrders = userOrders.slice(
+  currentPage * ordersPerPage,
+  (currentPage + 1) * ordersPerPage
+);
+
+const renderPageNumbers = pageCount > 1 && Array.from({ length: pageCount }).map((_, index) => (
+  <button key={index} onClick={() => paginate(index)} disabled={currentPage === index}>
+    {index + 1}
+  </button>
+));
+
+return (
+  <div className='fondo-pedido-user'>
+    <h2>Mi Pedido</h2>
+    <button className='user-listos' onClick={handlePedidosListos}>Pedidos Listos</button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Pedido</th>
+          <th>Fecha emision</th>
+          <th>Nombre</th>
+          <th>Rut</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        {currentOrders.reverse().map(order => (
+          <tr key={order.id_detalle_boleta} className={getOrderStatusClass(order.estado)}>
+            <td>{order.id_detalle_boleta}</td>
+            <td>{order.fechaYHora}</td>
+            <td>{order.nombre_usuario}</td>
+            <td>{order.rut}</td>
+            <td>{order.nombre_producto}</td>
+            <td>{order.cantidad}</td>
+            <td>{order.estado}</td>
           </tr>
-        </thead>
-        <tbody>
-          {[...userOrders].reverse().map(order => (
-            <tr key={order.id_detalle_boleta} className={getOrderStatusClass(order.estado)}>
-              <td>{order.id_detalle_boleta}</td>
-              <td>{order.fechaYHora}</td>
-              <td>{order.nombre_usuario}</td>
-              <td>{order.rut}</td>
-              <td>{order.nombre_producto}</td>
-              <td>{order.cantidad}</td>
-              <td>{order.estado}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        ))}
+      </tbody>
+    </table>
+    <div className='pagination'>
+      {renderPageNumbers}
     </div>
-  );
+  </div>
+);
 }
 
 export default UserOrderStatus;

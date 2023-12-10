@@ -1,4 +1,5 @@
 /* AdminProducts.css */
+
 .admin-products-container {
   display: flex;
   justify-content: center;
@@ -22,16 +23,14 @@
 }
 
 .admin-products-title {
-  margin-bottom: 50%;
-  margin-left: 5%;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 25px;
   text-align: center;
   color: #ffffff;
 }
 
 .add-products-link {
-  margin-bottom: 48%;
-  margin-right: 5%;
   color: rgb(0, 0, 0);
   font-weight: bold;
   text-decoration: none;
@@ -44,7 +43,7 @@
 }
 
 .back-to-admin-link-products {
-  margin-top: -50%;
+  margin-top: 10px;
   margin-left: 7%;
   text-decoration: none;
   color: #ffffff;
@@ -59,8 +58,8 @@
 
 .category-filter {
   display: flex;
-  margin-top: -45%;
-  margin-right: 65%;
+  margin-top: 10px;
+  align-items: center;
 }
 
 .category-filter label {
@@ -69,28 +68,33 @@
 
 .category-filter select {
   padding: 5px;
+  margin-left: 5px;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto; 
 }
 
 .table-products-container {
-  max-height: 100%;
-  overflow-y: auto;
+  border-collapse: collapse;
+  font-size: 16px;
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
-  opacity: 85%;
-  transform: scale(0.9);
+  font-size: 16px;
 }
 
-table, th, td {
+th,
+td {
   border: 1px solid #000000;
-  font-size: 20px;
-}
-
-th, td {
-  padding: 10px;
+  padding: 8px;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
 }
 
 th {
@@ -115,5 +119,5 @@ tbody tr:nth-child(odd) {
 }
 
 .table-products-container button:hover {
-  background-color: #edd100;
+  background-color: #ffc107;
 }

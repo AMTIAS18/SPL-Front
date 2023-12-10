@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/Pedido.css';
-
+import '../styles/PedidosCajera.css';
 
 function OrderManagement() {
   const [orders, setOrders] = useState([]);
@@ -38,13 +37,14 @@ function OrderManagement() {
         });
         setOrders(ordersWithFormattedDate);
       } else {
+        console.error('La respuesta no contiene un arreglo de pedidos:', data);
       }
     } catch (error) {
       console.error('Error al cargar los pedidos:', error);
     }
   };
   
-  const handleOrderReady = async (idDetalleBoleta) => {
+  const handleUpdateOrderStatus = async (idDetalleBoleta, nuevoEstado) => {
     try {
       const response = await fetch(`https://entreraices-production.up.railway.app/api/pedidos/update`, {
         method: 'PUT',
@@ -53,7 +53,7 @@ function OrderManagement() {
         },
         body: JSON.stringify({
           id_detalle_boleta: idDetalleBoleta,
-          estado: 'Listo'
+          estado: nuevoEstado
         }),
       });
   
@@ -61,11 +61,10 @@ function OrderManagement() {
         throw new Error('Error al actualizar el pedido');
       }
   
-      
       setOrders(prevOrders => 
         prevOrders.map(order => 
           order.id_detalle_boleta === idDetalleBoleta
-            ? { ...order, estado: 'Listo' }
+            ? { ...order, estado: nuevoEstado }
             : order
         )
       );
@@ -73,7 +72,6 @@ function OrderManagement() {
       console.error('Error al actualizar el pedido:', error);
     }
   };
-  
 
   return (
     <div className='fondo-pedido-cajera'>
@@ -102,9 +100,16 @@ function OrderManagement() {
               <td>{order.cantidad}</td>
               <td>{order.estado}</td>
               <td>
-                <button onClick={() => handleOrderReady(order.id_detalle_boleta)}>
-                  Marcar como Listo
-                </button>
+                <select 
+                  value={order.estado} 
+                  onChange={(e) => handleUpdateOrderStatus(order.id_detalle_boleta, e.target.value)}
+                  className="order-status-select" 
+                >
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Listo">Listo</option>
+                  <option value="En Camino">En Camino</option>
+                  <option value="Entregado">Entregado</option>
+                </select>
               </td>
             </tr>
           ))}

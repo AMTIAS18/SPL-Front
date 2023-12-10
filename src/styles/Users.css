@@ -14,11 +14,12 @@
 }
 
 .users-container-header{
-    margin-top: 35%;
+    margin-top: 50%;
 }
 
 .back-to-admin-link-users{
     color: #fff;
+    text-decoration: none;
 }
 
 

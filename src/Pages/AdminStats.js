@@ -60,13 +60,6 @@ function AdminStats() {
   
         await fetchTopCustomers();
   
-        if (
-          (!statsData || !statsData.success || !statsData.data || statsData.data.length === 0) &&
-          (!productStats || productStats.length === 0) &&
-          (!topCustomers || topCustomers.length === 0)
-        ) {
-          alert('No se encontraron registros para las fechas seleccionadas. Intente nuevamente');
-        }
       } catch (error) {
         console.error('Error al cargar las estadísticas de productos:', error);
         alert('Error al cargar las estadísticas.');
@@ -104,19 +97,19 @@ function AdminStats() {
     }
   };
   
-
   useEffect(() => {
     let chartInstance = null;
-
+  
     if (productStats && showProductStats) {
-      const sortedProductStats = productStats.sort((a, b) => parseInt(b.cantidad_total, 10) - parseInt(a.cantidad_total, 10));
-    
+      const filteredProductStats = productStats.filter(product => parseInt(product.cantidad_total, 10) !== 0);
+      const sortedProductStats = filteredProductStats.sort((a, b) => parseInt(b.cantidad_total, 10) - parseInt(a.cantidad_total, 10));
+  
       const ctx = document.getElementById('productChart');
-    
+  
       if (chartInstance) {
         chartInstance.destroy();
       }
-    
+  
       chartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -139,15 +132,14 @@ function AdminStats() {
         },
       });
     }
-
+  
     return () => {
       if (chartInstance) {
         chartInstance.destroy();
       }
     };
   }, [startDate, endDate, statsData, productStats, topCustomers, showProductStats]);
-
-
+  
   return (
     <div className='fondo-admin-stats'>
       <Link to="/AdminPage" className="back-to-admin-page">
@@ -161,7 +153,7 @@ function AdminStats() {
           <label htmlFor='endDate'>Hasta:</label>
           <input type='date' id='endDate' value={endDate} onChange={handleDateChange} />
         </div>
-    
+
         <button onClick={fetchStats}>Obtener Estadísticas</button>
 
         {statsData && statsData.success && statsData.data && statsData.data.length > 0 && (

@@ -270,23 +270,33 @@ const Pago = () => {
                                 type="text"
                                 placeholder="Fecha de Expiración (MM/YY)"
                                 value={checkoutDetails.fechaExpiracion}
-                                onChange={e => {
-                                const inputValue = e.target.value;
-                                const cleanedValue = inputValue.replace(/\//g, '');
-                                const formattedValue = cleanedValue
-                                    .replace(/\D/g, '')
-                                    .slice(0, 4)
-                                    .match(/.{1,2}/g)
-                                    ?.join('/') || '';
+                                onChange={(e) => {
+                                    const inputValue = e.target.value;
+                                    const cleanedValue = inputValue.replace(/\//g, '');
+                                    const formattedValue = cleanedValue
+                                        .replace(/\D/g, '')
+                                        .slice(0, 4)
+                                        .match(/.{1,2}/g)
+                                        ?.join('/') || '';
 
-                                setCheckoutDetails({
-                                    ...checkoutDetails,
-                                    fechaExpiracion: formattedValue,
-                                });
+                                    const month = formattedValue.split('/')[0];
+                                    if (parseInt(month, 10) > 12) {
+                                        alert('El mes no puede ser mayor a 12');
+                                         setCheckoutDetails({
+                                             ...checkoutDetails,
+                                             fechaExpiracion: '',
+                                         });
+                                    } else {
+                                        setCheckoutDetails({
+                                            ...checkoutDetails,
+                                            fechaExpiracion: formattedValue,
+                                        });
+                                    }
                                 }}
                                 maxLength={5}
                                 required
                             />
+
                             <input
                                 type="text"
                                 placeholder="Código de Seguridad"

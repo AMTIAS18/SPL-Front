@@ -102,6 +102,7 @@
   width: 93%;
   display: inline-block;
   text-align: center;
+  text-decoration: none;
 }
 
 .back-link-products:hover {

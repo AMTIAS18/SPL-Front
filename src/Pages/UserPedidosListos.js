@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Pedido.css';
+import '../styles/PedidosListos.css';
 
 function UserPedidosListos() {
   const [pedidosListos, setPedidosListos] = useState([]);
