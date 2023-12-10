@@ -149,6 +149,7 @@ function AdminCategories() {
                 {editingCategory && editingCategory.id_categoria === category.id_categoria ? (
                   <input
                     type="text"
+                    className="wide-input"
                     value={editingCategory.descripcion}
                     onChange={(e) => setEditingCategory({ ...editingCategory, descripcion: e.target.value })}
                   />
@@ -168,17 +169,17 @@ function AdminCategories() {
                 )}
               </td>
               <td>
-                {editingCategory && editingCategory.id_categoria === category.id_categoria ? (
-                  <div classname="edit-buttons-categories">
-                    <button onClick={handleSaveCategory}>Guardar</button>
-                    <button onClick={handleCancelEdit}>Cancelar</button>
-                  </div>
-                ) : (
-                  <div classname="edit-buttons-categories">
-                    <button onClick={() => handleEditCategory(category)}>Editar</button>
-                    <button onClick={() => handleDeleteCategory(category.id_categoria)}>Eliminar</button>
-                  </div>
-                )}
+              {editingCategory && editingCategory.id_categoria === category.id_categoria ? (
+                <div className="edit-buttons-categories">
+                  <button onClick={handleSaveCategory}>Guardar</button>
+                  <button onClick={handleCancelEdit}>Cancelar</button>
+                </div>
+              ) : (
+                <div className="edit-buttons-categories">
+                  <button onClick={() => handleEditCategory(category)}>Editar</button>
+                  <button onClick={() => handleDeleteCategory(category.id_categoria)}>Eliminar</button>
+                </div>
+              )}
               </td>
             </tr>
           ))}

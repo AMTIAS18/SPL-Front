@@ -265,14 +265,14 @@ function Users() {
                                 )}
                             </td>
                             <td>
-                                {isEditing && user.id_usuario === editedUser.id_usuario ? (
-                                    <td>
+                            {isEditing && user.id_usuario === editedUser.id_usuario ? (
+                                <>
                                         <button className='edit-button' onClick={handleSaveEdit}>Guardar</button>
                                         <button className="edit-button" onClick={handleCancelEdit}>Cancelar</button>
-                                    </td>
-                                ) : (
+                                </>
+                            ) : (
                                     <button className="edit-button" onClick={() => handleEditClick(user)}>Editar</button>
-                                )}
+                            )}
                             </td>
                         </tr>
                     ))}

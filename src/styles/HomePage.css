@@ -76,7 +76,7 @@ body {
   text-align: center;
 }
 
-/* Estilos específicos para pantallas pequeñas (ej. móviles) */
+
 @media only screen and (max-width: 480px) {
 
   body {
@@ -89,10 +89,10 @@ body {
   }
 
   .menu-columns {
-    flex-direction: column;  /* Las columnas de tarjetas se apilan verticalmente */
+    flex-direction: column;  
   }
 
   .left-menu-column, .right-menu-column {
-    width: 100%;  /* Las columnas ocupan todo el ancho disponible */
+    width: 100%; 
   }
 }

@@ -1,19 +1,19 @@
 #sidebar {
-  width: 210px; /* Ancho de la barra lateral */
-  background: #ffffff; /* Color de fondo de la barra lateral */
-  color: rgb(255, 255, 255); /* Color del texto en la barra lateral */
-  height: 100vh; /* Altura completa de la ventana */
-  position: fixed; /* Fijar la barra lateral en su posición */
-  top: 0; /* Alineación superior */
-  left: 0; /* Alineación izquierda */
-  padding-top: 20px; /* Espacio superior de la barra lateral */
-  overflow-y: auto; /* Agregar desplazamiento vertical si es necesario */
-  z-index: 1; /* Asegura que la barra lateral esté en la parte superior */
+  width: 210px; 
+  background: #ffffff; 
+  color: rgb(255, 255, 255); 
+  height: 100vh; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  padding-top: 20px; 
+  overflow-y: auto; 
+  z-index: 1; 
 }
 
 
 #sidebar ul {
-  padding: 15px 20px; /* Aumento del padding para dar más espacio alrededor de los elementos del menú */
+  padding: 15px 20px; 
   border-bottom: 1px solid #e0e0e0;
   margin: 0;
   list-style: none;
@@ -21,13 +21,13 @@
 
 #sidebar ul li {
   list-style: none;
-  padding: 5px; /*ajusta la separacion de los texto en la barra*/
-  text-align: center; /* Alineación del texto en el menú de la barra lateral */
+  padding: 5px; 
+  text-align: center; 
   color: #000000;
 }
 
 #sidebar ul li a {
-  color: #333333; /* Color de las letras del menú */
+  color: #333333;
   font-size: 18px;
   transition: color 0.3s;
   text-decoration: none;
@@ -37,22 +37,22 @@
 
 
 #sidebar ul li a:hover {
-  color: #ff4500; /* Un color naranja al pasar el mouse para coincidir con el diseño */
+  color: #ff4500; 
 }
 
 
-/* Estilos para el logotipo en la barra lateral */
+
 .sidebar-header {
-  text-align: center; /* Alineación del texto del encabezado */
+  text-align: center; 
   padding: 20px 0;
-  background-color: #ffffff; /* Color de fondo del encabezado (puede cambiarlo) */
+  background-color: #ffffff; 
   border-bottom: 2px solid #e0e0e0;
 }
 
-/*LGO DE LA BARRA*/
+
 .sidebar-header img {
   width: 150px;
-  max-width: 180px; /* Ancho máximo del logotipo */
+  max-width: 180px; 
   margin-bottom: 30px;
   
 }
@@ -88,43 +88,43 @@
 
 
 
-/* Estilos para el contenido principal */
+
 #content {
-  background-color: #07060694; /* Color de fondo del contenido principal */
-  margin-left: 210px; /* Ajusta el margen izquierdo para evitar que el contenido quede detrás de la barra lateral */
-  padding: 10px; /* Espacio interior del contenido principal */
+  background-color: #07060694; 
+  margin-left: 210px; 
+  padding: 10px; 
 }
 
 
-/* Estilos para móviles */
+
 @media (max-width: 480px) {
 
   #sidebar {
-    width: 100%; /* Ajusta la barra lateral al 100% del ancho en móviles */
-    height: auto; /* Altura automática basada en el contenido */
-    position: relative; /* Hace que la barra lateral ya no esté fijada en su posición */
-    padding-top: 10px; /* Reduce el espacio superior */
-    z-index: 0; /* Resetea la posición en el eje z */
+    width: 100%; 
+    height: auto; 
+    position: relative; 
+    padding-top: 10px; 
+    z-index: 0; 
   }
 
   #content {
-    margin-left: 0; /* Resetea el margen izquierdo para el contenido en móviles */
-    background-color: #ffffff; /* Ajusta el color de fondo del contenido */
+    margin-left: 0; 
+    background-color: #ffffff; 
   }
 
   .sidebar-header img {
-    width: 100px; /* Reduce el tamaño del logotipo para móviles */
+    width: 100px; 
     max-width: 120px; 
-    margin-bottom: 20px; /* Reduce el espacio debajo del logotipo */
+    margin-bottom: 20px; 
   }
 
   #sidebar ul {
-    padding: 10px 15px; /* Reduce el padding alrededor de los elementos del menú */
+    padding: 10px 15px; 
   }
 
   #sidebar ul li a {
-    font-size: 16px; /* Reduce el tamaño del texto de los enlaces del menú para móviles */
-    padding: 8px 0; /* Reduce el padding vertical de los enlaces del menú */
+    font-size: 16px; 
+    padding: 8px 0; 
   }
 
 }

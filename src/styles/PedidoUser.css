@@ -9,13 +9,13 @@
   margin: -10px;
   overflow-y: auto;
 }
-  
-h2 {
+
+.fondo-pedido-user h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.user-listos{
+.fondo-pedido-user .user-listos {
   margin-bottom: 4px;
   margin-right: auto;
   margin-left: 84%;
@@ -28,47 +28,48 @@ h2 {
   cursor: pointer;
 }
 
-.user-listos:hover {
+.fondo-pedido-user .user-listos:hover {
   background-color: #ffc107;
 }
 
-table {
+.fondo-pedido-user table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-th, td {
+.fondo-pedido-user th,
+.fondo-pedido-user td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
 }
 
-th {
+.fondo-pedido-user th {
   background-color: #f2f2f2;
 }
 
-tbody tr:nth-child(even) {
+.fondo-pedido-user tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.pedido-listo {
+.fondo-pedido-user .pedido-listo {
   background-color: #27ae60;
   color: white;
 }
 
-.pedido-pendiente {
+.fondo-pedido-user .pedido-pendiente {
   background-color: #e74c3c;
   color: white;
 }
 
-.pagination {
+.fondo-pedido-user .pagination {
   margin-top: 20px;
   display: flex;
   justify-content: center;
 }
 
-.pagination button {
+.fondo-pedido-user .pagination button {
   margin: 0 5px;
   padding: 5px 10px;
   border: 1px solid #ccc;
@@ -76,6 +77,6 @@ tbody tr:nth-child(even) {
   cursor: pointer;
 }
 
-.pagination button:hover {
+.fondo-pedido-user .pagination button:hover {
   background-color: #f2f2f2;
 }

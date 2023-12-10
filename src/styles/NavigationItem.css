@@ -1,10 +1,10 @@
 .navigation-item {
   padding: 10px;
-  text-align: center; /* Alineación del texto en el menú de la barra lateral */
+  text-align: center; 
 }
 
 .navigation-item a {
-  color: #333333; /* Color de las letras del menú */
+  color: #333333; 
   font-size: 18px;
   transition: color 0.3s;
   text-decoration: none;
@@ -13,7 +13,7 @@
 }
 
 .navigation-item a:hover {
-  color: #ff4500; /* Un color naranja al pasar el mouse para coincidir con el diseño */
+  color: #ff4500;
 }
 
 .navigation-item a.active-page {

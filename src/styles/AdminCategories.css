@@ -45,26 +45,36 @@
 }
 
 .admin-categories-table {
-  width: 100%;
+  width: 97%;
   border-collapse: collapse;
   opacity: 0.85;
   margin-top: -10px;
+  margin: 20px auto;
 }
 
-.admin-categories-table th {
-  border: 1px solid #000000;
-  font-size: 20px;
-  padding: 10px;
-  text-align: left;
-  background-color: #f2f2f2;
-}
-
+.admin-categories-table th,
 .admin-categories-table td {
   border: 1px solid #000000;
-  font-size: 20px;
-  padding: 10px;
+  font-size: 18px;
+  padding: 8px;
   text-align: left;
 }
+
+.admin-categories-table th:nth-child(1),
+.admin-categories-table td:nth-child(1),
+.admin-categories-table th:nth-child(2),
+.admin-categories-table td:nth-child(2),
+.admin-categories-table th:nth-child(4),
+.admin-categories-table td:nth-child(4),
+.admin-categories-table th:nth-child(5),
+.admin-categories-table td:nth-child(5) {
+  width: 16%;
+}
+
+.wide-input {
+  width: 98%;
+}
+
 
 .back-link {
   margin-top: 10px;
@@ -85,16 +95,19 @@
 }
 
 .edit-buttons-categories {
+  margin-top: 5px;
+}
+
+.edit-buttons-categories button {
   background-color: #edd100;
   color: #000000;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
-  margin-top: 10px;
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
-.edit-buttons-categories:hover {
+.edit-buttons-categories button:hover {
   background-color: #ffc107;
 }

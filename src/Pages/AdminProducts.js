@@ -142,7 +142,7 @@ function AdminProducts() {
       </div>
       <div class="table-container">
         <div className="table-products-container">
-          <table>
+          <table  className="admin-products-table">
             <thead>
               <tr>
                 <th>Nombre del Producto</th>

@@ -1,5 +1,3 @@
-/* AdminProducts.css */
-
 .admin-products-container {
   display: flex;
   justify-content: center;
@@ -72,6 +70,7 @@
 }
 
 .table-container {
+  scale: 0.9;
   width: 100%;
   overflow-x: auto; 
 }
@@ -82,6 +81,7 @@
 }
 
 table {
+  width: 100%;
   border-collapse: collapse;
   font-size: 16px;
 }
@@ -94,7 +94,7 @@ td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 150px;
+  max-width: 100px;
 }
 
 th {
@@ -121,3 +121,30 @@ tbody tr:nth-child(odd) {
 .table-products-container button:hover {
   background-color: #ffc107;
 }
+
+.admin-products-table td input[type="text"],
+.admin-products-table td input[type="checkbox"],
+.admin-products-table td select {
+  max-width: 160px;
+  width: 100%;
+}
+
+td:nth-child(n+3):nth-child(-n+4),
+.admin-products-table td:nth-child(n+3):nth-child(-n+4) input[type="checkbox"],
+.admin-products-table td:nth-child(n+3):nth-child(-n+4) select {
+  max-width: 100px;
+  width: 11%;
+}
+
+td:nth-child(5) input[type="number"] {
+  width: 50px;
+}
+
+td:nth-child(6) input[type="text"] {
+  width: 100px;
+}
+
+td:nth-child(7) input[type="number"] {
+  width: 70px;
+}
+

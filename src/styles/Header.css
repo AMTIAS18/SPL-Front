@@ -45,17 +45,17 @@
 
 @media only screen and (max-width: 768px) {
   .header-container {
-      padding: 20px 30px; /* Reducción del padding */
-      flex-direction: column; /* Cambio de dirección para apilar logo y navegación */
-      height: auto; /* Altura automática */
+      padding: 20px 30px; 
+      flex-direction: column; 
+      height: auto; 
   }
 
   .header-nav {
-      gap: 10px; /* Reducción del gap entre enlaces */
-      margin-top: 10px; /* Espacio adicional entre el logo y la navegación */
+      gap: 10px; 
+      margin-top: 10px; 
   }
 
   .header-logo {
-      font-size: 20px; /* Reducción del tamaño de la fuente */
+      font-size: 20px; 
   }
 }

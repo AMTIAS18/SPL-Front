@@ -25,7 +25,6 @@ import AdminCategories from './Pages/AdminCategories';
 import AdminCategoriesAdd from './Pages/AdminCategoriesAdd';
 import Pago from './Pages/Pago';
 import Compra from './Pages/Compra';
-import Direccion from './Pages/Direccion';
 import UserOrderStatus from './Pages/UserOrderStatus';
 import UserPedidosListos from './Pages/UserPedidosListos';
 import OrderManagement from './Pages/OrderManagement';
@@ -84,7 +83,6 @@ function App() {
                                 <Route path="/admincategoriesadd" element={<AdminCategoriesAdd />} />
                                 <Route path="/pago" element={<Pago />} />
                                 <Route path="/compra" element={<Compra />} />
-                                <Route path="/direccion" element={<Direccion />} />
                                 <Route path="/userorderstatus" element={<UserOrderStatus />} />
                                 <Route path="/userlistos" element={<UserPedidosListos />} />
                                 <Route path="/cajerapage" element={<OrderManagement />} />

@@ -39,7 +39,7 @@
     padding: 15px;
     border: 1px solid #ece2e2;
     border-radius: 5px;
-    width: 48%; /* Aproximadamente la mitad del espacio, para que dos campos puedan estar en la misma fila */
+    width: 48%;
     font-size: 14px;
     color: #333;
 }
@@ -61,7 +61,7 @@
     background-color: #000000;
 }
 
-/* Estilos para el mapa */
+
 .contact-data .map-container {
     margin-top: 20px;
     position: relative;

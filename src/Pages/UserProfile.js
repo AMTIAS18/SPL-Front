@@ -64,7 +64,6 @@ function UserProfile() {
         return;
       }
 
-      // Obtener datos de dirección correspondientes al id_direccion del usuario
       const userAddress = addressData.data.find((address) => address.id_direccion === currentUser.id_direccion);
 
       if (!userAddress) {

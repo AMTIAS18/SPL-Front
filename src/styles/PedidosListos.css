@@ -1,4 +1,4 @@
-.fondo-user-pedidos-listos{
+.fondo-user-pedidos-listos {
   display: flex;
   flex-direction: column;
   background-image: url('../../public/fondo.jpg');
@@ -15,7 +15,7 @@
   max-width: 90%;
 }
 
-.back-to-admin-link-products {
+.fondo-user-pedidos-listos .back-to-admin-link-products {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -23,34 +23,35 @@
   margin-bottom: 20px;
 }
 
-.back-to-admin-link-products i {
+.fondo-user-pedidos-listos .back-to-admin-link-products i {
   margin-right: 5px;
 }
 
-.back-to-admin-link-products:hover {
+.fondo-user-pedidos-listos .back-to-admin-link-products:hover {
   color: #ffffff;
 }
-  
-h2 {
+
+.fondo-user-pedidos-listos h2 {
   margin-bottom: 20px;
 }
 
-table {
+.fondo-user-pedidos-listos table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-th, td {
+.fondo-user-pedidos-listos th,
+.fondo-user-pedidos-listos td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
 }
 
-th {
+.fondo-user-pedidos-listos th {
   background-color: #f2f2f2;
 }
 
-tbody tr:nth-child(even) {
+.fondo-user-pedidos-listos tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }

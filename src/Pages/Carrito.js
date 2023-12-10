@@ -43,11 +43,9 @@ const Carrito = () => {
   const handleVaciarCarrito = () => {
     const confirmation = window.confirm('¿Estás seguro de vaciar el carrito?');
     if (confirmation) {
-      setCartItems([]); // Vacía el carrito
-      localStorage.removeItem('carrito'); // Elimina el carrito guardado en localStorage
-      setInputValues({}); // Limpia los valores de los inputs de mensaje
-  
-      // Opcional: redirecciona a la página actual para refrescarla y mostrar el carrito vacío
+      setCartItems([]);
+      localStorage.removeItem('carrito');
+      setInputValues({});
       window.location.reload();
     }
   };

@@ -47,19 +47,19 @@
 @media only screen and (max-width: 480px) {
 
   .menu-card {
-    flex-direction: column;  /* Cambiamos la dirección a columna para que los elementos se apilen verticalmente */
-    align-items: flex-start;  /* Alineamos los elementos al inicio (izquierda) */
+    flex-direction: column;  
+    align-items: flex-start;  
   }
 
   .menu-card img.menu-card-image {
     margin-right: 0;
     margin-left: 0;
-    margin-bottom: 15px;  /* Espacio debajo de la imagen */
-    width: 100%;  /* La imagen ocupa todo el ancho de la tarjeta */
+    margin-bottom: 15px;  
+    width: 100%; 
   }
 
   .menu-card h3, .menu-card p {
-    text-align: left;  /* Alineamos el texto a la izquierda */
+    text-align: left; 
   }
 
 }
